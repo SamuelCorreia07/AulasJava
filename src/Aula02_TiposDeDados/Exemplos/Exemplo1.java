@@ -1,6 +1,6 @@
-package Aula02_TiposDeDados;
+package Aula02_TiposDeDados.Exemplos;
 
-public class Exemplos {
+public class Exemplo1 {
     //public static void main == psvm
     public static void main(String[] args) {
         System.out.println("Hello and welcome! \nOla Mundo!!!");
@@ -10,11 +10,14 @@ public class Exemplos {
         char sexo;
         boolean canhoto;
 
+        char letra = 65;
+        System.out.println(letra);
+
         anoNasc = 1980;
         peso = 65.7;
         sexo = 'M';
         canhoto = false;
-        double altura = 1.8;
+        float altura = 1.8F;
 
         int contador = 20;
         int novoContador = contador + 1;
