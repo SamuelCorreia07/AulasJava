@@ -1,6 +1,6 @@
 package Aula02_TiposDeDados.Exemplos;
 
-public class Exemplo3 { //OPERADORES COMPARATIVOS
+public class Exemplo3_OperadoresComparacao { //OPERADORES COMPARATIVOS
     public static void main(String[] args) {
         int num1 = 3, num2 = 7;
         boolean resposta;

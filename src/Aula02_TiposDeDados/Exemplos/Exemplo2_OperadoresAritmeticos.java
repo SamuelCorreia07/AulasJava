@@ -1,6 +1,6 @@
 package Aula02_TiposDeDados.Exemplos;
 
-public class Exemplo2 { //OPERADORES ARITMÉTICOS
+public class Exemplo2_OperadoresAritmeticos { //OPERADORES ARITMÉTICOS
     public static void main(String[] args) {
         float totalFloat, numero1Float = 2;
         int total, numero1 = 2, numero2 = 4;
