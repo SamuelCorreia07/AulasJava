@@ -1,11 +1,22 @@
 package Aula02_TiposDeDados.Exercicios;
 
+import java.util.Scanner;
+
 public class Exercicio01 {
     public static void main(String[] args) {
-        int idade = 17;
-        float altura = 1.68F;
-        double peso = 61.5;
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Digite a sua idade: ");
+        int idade = scanner.nextInt();
+
+        System.out.println("Digite a sua altura: ");
+        float altura = scanner.nextFloat();
+
+        System.out.println("Digite o seu peso: ");
+        double peso = scanner.nextDouble();
 
         System.out.println("idade = " + idade + "\naltura = " + altura + "\npeso = " + peso);
+
+        scanner.close();
     }
 }

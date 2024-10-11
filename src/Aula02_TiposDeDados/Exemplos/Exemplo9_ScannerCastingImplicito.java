@@ -4,6 +4,13 @@ import java.util.Scanner;
 public class Exemplo9_ScannerCastingImplicito {
     public static void main(String[] args) {
 
+        // Comandos para fazer o Scanner:
+        // import java.util.Scanner; (antes da class)
+        // Scanner scanner = new Scanner(System.in);
+        // sout
+        // scanner.next();
+        // scanner.close();
+
         //Criando um objeto Scanner
         Scanner scanner = new Scanner(System.in);
 
