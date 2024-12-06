@@ -31,7 +31,7 @@ public class Desafio02 {
 
             switch (opcao) {
                 case 1:
-                    exibirUsuario();
+                    exibirCadastro();
                     break;
                 case 2:
                     cadastrarUsuario();
@@ -52,13 +52,14 @@ public class Desafio02 {
         } while (opcao != 5);
     }
 
-    public static void exibirUsuario(){
-        String tabela = "";
+    public static void exibirCadastro(){
+        StringBuilder tabela = new StringBuilder();
         for (String[] linhas : cadastro) {
             for (int colunas = 0; colunas < cadastro[0].length; colunas++) {
-                tabela += linhas[colunas] + "\t\t";
+                int tamanhocoluna = colunas == 0 ? 5 : (colunas == 2 ? 12 : 25);
+                tabela.append(String.format("%-"+tamanhocoluna+"s | ", linhas[colunas])); // Espaçamento entre as colunas
             }
-            tabela += "\n";
+            tabela.append("\n"); // Para pular a próxima linha
         }
 
         System.out.println(tabela);
@@ -68,6 +69,7 @@ public class Desafio02 {
         System.out.print("Digite a quantidade de usuários que deseja cadastrar: ");
         int qtdUsuarios = scanner.nextInt();
         String[][] novaMatriz = new String[cadastro.length+qtdUsuarios][cabecalho.length];
+        scanner.nextLine();
 
         for (int linha = 0; linha < cadastro.length; linha++) {
             novaMatriz[linha] = Arrays.copyOf(cadastro[linha],cadastro[linha].length);
@@ -83,14 +85,23 @@ public class Desafio02 {
 
             for (int coluna = 1; coluna < cabecalho.length; coluna++) {
                 System.out.print(cabecalho[coluna] + ": ");
-                novaMatriz[linha][coluna] = scanner.next();
+                novaMatriz[linha][coluna] = scanner.nextLine();
             }
         }
         cadastro = novaMatriz;
     }
 
     public static void atualizarUsuario(){
-        System.out.println("Atualizar");
+        exibirCadastro();
+        System.out.println("\nDigite o ID do usuário que deseja atualizar: ");
+        int idEscolhido = scanner.nextInt();
+
+        System.out.println(cabecalho[0] + ": " + idEscolhido);
+        for (int coluna = 1; coluna < cabecalho.length; coluna++) {
+            System.out.print(cabecalho[coluna] + ": ");
+            cadastro[idEscolhido][coluna] = scanner.nextLine();
+        }
+        exibirCadastro();
     }
     public static void deletarUsuario(){
         System.out.println("Deletar");
