@@ -6,8 +6,8 @@ public class Exercicio10_MaiorElemMatriz {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int[][] matrizInt = new int[4][4];
-        int numPares = 0;
+        int[][] matrizInt = new int[3][3];
+        int maiorValor = 0;
 
         for (int[] vetorInt : matrizInt) {
             for (int i = 0; i < vetorInt.length; i++) {
@@ -17,10 +17,13 @@ public class Exercicio10_MaiorElemMatriz {
         }
         for (int[] vetorInt : matrizInt) {
             for (int valorInt : vetorInt) {
-                if (valorInt % 2 == 0) {
-                    numPares ++;
+                if (valorInt > maiorValor) {
+                    maiorValor = valorInt;
                 }
             }
         }
+        System.out.println("O maior número da matriz é " + maiorValor);
+
+        scanner.close();
     }
 }
