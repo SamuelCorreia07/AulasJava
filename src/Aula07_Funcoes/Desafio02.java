@@ -101,9 +101,31 @@ public class Desafio02 {
             System.out.print(cabecalho[coluna] + ": ");
             cadastro[idEscolhido][coluna] = scanner.nextLine();
         }
+        System.out.println("Usuário atualizado com sucesso!");
         exibirCadastro();
     }
     public static void deletarUsuario(){
-        System.out.println("Deletar");
+
+        exibirCadastro();
+
+        System.out.println("Digite o ID do usuário que deseja deletar: ");
+        int idEscolhido = scanner.nextInt();
+        scanner.nextLine();
+
+        String[][] novaMatriz = new String[cadastro.length-1][cabecalho.length];
+        novaMatriz[0] = cabecalho;
+        for (int linha = 1, idNovaMatriz = 1; linha < cadastro.length; linha++) {
+            if (linha==idEscolhido){
+                continue;
+            }
+            novaMatriz[idNovaMatriz] = Arrays.copyOf(cadastro[linha],cadastro[linha].length);
+            novaMatriz[idNovaMatriz][0] = String.valueOf(idNovaMatriz);
+            idNovaMatriz++;
+        }
+
+        cadastro = novaMatriz;
+
+        System.out.println("Usuário deletado com sucesso!");
+        exibirCadastro();
     }
 }
