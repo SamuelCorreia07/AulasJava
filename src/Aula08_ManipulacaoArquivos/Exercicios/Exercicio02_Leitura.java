@@ -1,15 +1,9 @@
 package Aula08_ManipulacaoArquivos.Exercicios;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Scanner;
+import java.io.*;
 
-public class Exercicio01 {
+public class Exercicio02_Leitura {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        String[] vetorAlunos = new String[5];
 
         File alunos = new File("src\\Aula08_ManipulacaoArquivos\\Exercicios\\alunos.txt");
 
@@ -28,15 +22,20 @@ public class Exercicio01 {
             }
         }
 
-        System.out.println("Digite o nome de 5 alunos: ");
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(alunos))) {
+            String linha;
+            StringBuilder conteudoDoArquivo = new StringBuilder();
 
-        for (int i = 0; i < vetorAlunos.length; i++) {
-            vetorAlunos[i] = scanner.nextLine();
-        }
-        try (FileWriter fileWriter = new FileWriter(alunos)) {
-            for (String aluno : vetorAlunos) {
-                fileWriter.write(aluno + "\n");
+            while ((linha = bufferedReader.readLine())!=null) {
+                conteudoDoArquivo.append(linha).append("\n");
             }
+
+            String[] linhaAlunos = conteudoDoArquivo.toString().split("\n");
+
+            for (String linhaAluno : linhaAlunos) {
+                System.out.println(linhaAluno);
+            }
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
